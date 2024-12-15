@@ -6,6 +6,6 @@
 \alias{LinkedDataTable-package}
 \title{LinkedDataTable: Operators for Collections of 'data.table' Objects}
 \description{
-Provides the class 'LinkedDataTable' for performing operations on collections of 'data.table' objects which are related by a common column.
+Provides the class 'LinkedDataTable' for performing operations on collections of 'data.table' objects related by a common column.
 }
 \keyword{internal}

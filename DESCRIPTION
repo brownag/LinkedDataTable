@@ -4,7 +4,7 @@ Title: Operators for Collections of 'data.table' Objects
 Version: 0.0.1
 Author: Andrew G. Brown
 Maintainer: Andrew G. Brown <brown.andrewg@gmail.com>
-Description: Provides the class 'LinkedDataTable' for performing operations on collections of 'data.table' objects which are related by a common column.
+Description: Provides the class 'LinkedDataTable' for performing operations on collections of 'data.table' objects related by a common column.
 Imports: data.table
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -12,4 +12,3 @@ LazyData: true
 RoxygenNote: 7.3.2
 Suggests: 
     testthat (>= 3.0.0)
-Config/testthat/edition: 3

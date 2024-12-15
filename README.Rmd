@@ -1,0 +1,60 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# LinkedDataTable
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of 'LinkedDataTable' is to provide a custom class that defines operations on collections of 'data.table' objects related by a common column.
+
+## Installation
+
+You can install the development version of 'LinkedDataTable' from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("brownag/LinkedDataTable")
+```
+
+## Example
+
+This is a basic example demonstrating usage of the 'LinkedDataTable' class:
+
+```{r example}
+library(LinkedDataTable)
+
+d <- data.frame(i = 1:26, a = letters, b = LETTERS)
+d2 <- expand.grid(d, stringsAsFactors = FALSE)
+d2$j <- seq(nrow(d2))
+
+ldt <- LinkedDataTable(list(x = d, y = d2))
+
+ldt
+
+ldt[[1]]
+
+ldt[["y"]]
+
+ldt1 <- ldt[1, ]
+ldt1
+
+ldt2 <- ldt[2, ]
+ldt2
+
+ldt12 <- ldt1 + ldt2
+ldt12
+```
+
