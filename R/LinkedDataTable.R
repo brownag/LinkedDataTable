@@ -42,20 +42,23 @@ print.LinkedDataTable <- function(x, ...) {
 		i <- which(i)
 	}
 
+	idc <- attr(x, "idcol")
+
 	if (is.integer(as.integer(i))) {
-		id <- x[[1]][i, ][[1]]
-		x <- lapply(x, function(xx) xx[xx[[1]] == id, ])
+		id <- x[[1]][i, ][[idc]]
+		x <- lapply(x, function(xx) xx[xx[[idc]] == id, ])
 	}
 
-	LinkedDataTable(x[j])
+	LinkedDataTable(x[j], idcol = idc)
 }
 
 #' @export
 `+.LinkedDataTable` <- function(x, y) {
+	stopifnot(asttr(x, "idcol") == attr(y, "idcol"))
 	yn <- names(y)
 	xn <- names(x)
 	x[yn] <- lapply(yn, function(n) {
 		data.table::rbindlist(list(x[[n]], y[[n]]), fill = TRUE)
 	})
-	LinkedDataTable(x)
+	LinkedDataTable(x, attr(x, "idcol"))
 }
