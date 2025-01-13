@@ -1,6 +1,6 @@
 #' @export
 #' @exportClass LinkedDataTable
-LinkedDataTable <- function(x = list(), idcol = NULL, ...) {
+LinkedDataTable <- function(x = list(), idcol = NULL, primary_table = 1, ...) {
 	if (is.data.frame(x) || !is.list(x)) {
 		x <- list(x = x)
 	}
@@ -11,6 +11,7 @@ LinkedDataTable <- function(x = list(), idcol = NULL, ...) {
 	}
 	structure(lapply(x, .to.data.table),
 						idcol = idcol,
+						primary_table = primary_table,
 						class = "LinkedDataTable")
 }
 
@@ -42,10 +43,11 @@ print.LinkedDataTable <- function(x, ...) {
 		i <- which(i)
 	}
 
+	pt <- attr(x, "primary_table")
 	idc <- attr(x, "idcol")
 
 	if (is.integer(as.integer(i))) {
-		id <- x[[1]][i, ][[idc]]
+		id <- x[[pt]][i, ][[idc]]
 		x <- lapply(x, function(xx) xx[xx[[idc]] == id, ])
 	}
 
