@@ -54,7 +54,7 @@ print.LinkedDataTable <- function(x, ...) {
 
 #' @export
 `+.LinkedDataTable` <- function(x, y) {
-	stopifnot(asttr(x, "idcol") == attr(y, "idcol"))
+	stopifnot(attr(x, "idcol") == attr(y, "idcol"))
 	yn <- names(y)
 	xn <- names(x)
 	x[yn] <- lapply(yn, function(n) {
