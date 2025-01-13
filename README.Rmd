@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of 'LinkedDataTable' is to provide a custom class that defines operations on collections of 'data.table' objects related by a common column.
+The goal of 'LinkedDataTable' is to provide a custom class that defines operations on collections of 'data.frame'-like objects related by a common column.
 
 ## Installation
 
@@ -46,7 +46,7 @@ ldt
 
 ldt[[1]]
 
-ldt[["y"]]
+str(ldt[["y"]])
 
 ldt1 <- ldt[1, ]
 ldt1
